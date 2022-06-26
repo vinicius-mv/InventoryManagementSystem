@@ -1,9 +1,23 @@
 ﻿@page "/"
+@using IMS.CoreBusiness
+@using IMS.UseCases.Inventories.Interfaces
 
-<PageTitle>Index</PageTitle>
+@inject IViewInventoriesByNameUseCase ViewInventoriesByNameUseCase
 
-<h1>Hello, world!</h1>
+<PageTitle>Test Page</PageTitle>
+<br />
+<ul>
+    @foreach (var inv in _inventories)
+    {
+        <li>@inv.InventoryName</li>
+    }
+</ul>
 
-Welcome to your new app.
+@code {
+    private List<Inventory> _inventories = new List<Inventory>();
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    protected override async Task OnInitializedAsync()
+    {
+        _inventories =  (await ViewInventoriesByNameUseCase.ExecuteAsync()).ToList();
+    }
+}
