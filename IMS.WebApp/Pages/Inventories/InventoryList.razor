@@ -1,7 +1,18 @@
 ﻿@page "/inventories"
 
 <h3>InventoryList</h3>
+<br />
+<SearchInventoryComponent 
+    OnSearchInventory="OnInventorySearch">
+</SearchInventoryComponent>
+<br />
+Search Term: @searchTerm
 
 @code {
+    private string searchTerm = string.Empty;
 
+    private void OnInventorySearch(string searchTerm)
+    {
+        this.searchTerm = searchTerm;
+    }
 }
