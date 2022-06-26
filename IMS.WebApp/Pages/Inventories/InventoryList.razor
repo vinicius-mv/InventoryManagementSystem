@@ -7,6 +7,9 @@
 </SearchInventoryComponent>
 <br />
 Search Term: @searchTerm
+<InventoryListComponent
+    SearchTerm=searchTerm>
+</InventoryListComponent>
 
 @code {
     private string searchTerm = string.Empty;
