@@ -18,6 +18,16 @@ namespace IMS.Plugins.InMemory
             };
         }
 
+        public Task AddInventoryAsync(Inventory inventory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> ExistsAsync(Inventory inventory)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<Inventory>> GetInventoriesByNameAsync(string name)
         {
             if(string.IsNullOrWhiteSpace(name))
